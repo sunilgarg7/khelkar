@@ -31,9 +31,10 @@ public class OptimalCoinSelection {
 			for (int i=0, j= gap; j< len; i++, j++) {
 				if (gap == 0) {
 					dp[i][j] = arr[i];
-				} else if (gap == 1) {
+				} else if (gap == 1) { 
 					dp[i][j] = Math.max(arr[i], arr[j]);
 				} else {
+					// Learn from here : https://www.youtube.com/watch?v=ww4V7vRIzSk
 					int a = arr[i] + Math.min(dp[i+2][j], dp[i+1][j-1]);
 					int b = arr[j] + Math.min(dp[i+1][j-1], dp[i][j-2]);
 					dp[i][j] = Math.max(a, b);
