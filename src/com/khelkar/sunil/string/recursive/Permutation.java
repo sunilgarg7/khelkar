@@ -1,4 +1,4 @@
-package com.khelkar.sunil.recursion;
+package com.khelkar.sunil.string.recursive;
 
 public class Permutation {
 
