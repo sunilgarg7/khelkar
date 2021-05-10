@@ -19,7 +19,7 @@ public class DiagnolPrinting {
 
 	private static void print1stPointDiagnol() {
 		
-		int[][] arr = ArrayUtil.src_Rect1;
+		int[][] arr = ArrayUtil.src_Rect2;
 		int rows = arr.length;
 		int cols = arr[0].length;
 		
