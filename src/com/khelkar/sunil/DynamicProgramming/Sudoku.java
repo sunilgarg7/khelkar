@@ -2,19 +2,48 @@ package com.khelkar.sunil.DynamicProgramming;
 
 import java.util.HashMap;
 
+import com.khelkar.sunil.aa_utility.ArrayUtil;
+import com.khelkar.sunil.tool.Tools;
+
 public class Sudoku {
 
 	public static void main(String[] args) {
 		
-		int[][] board = new int[9][9];
+		int[][] board = new int[9][9]; // assign your partially filled sudoku here.
 		// randomly filled sudoku board or we should get board as input to our program,
 		// the logic below will take care of pre-filled enteries and will print all the possible valid sudoku.
 		// if this program is run without any values filled in board then it will print all valid sudokus that possible in this universe for 9 * 9 Board offcourse which is hard coded.
 		// display(board);
 		
+		// or board = manual entry or input
+		board = ArrayUtil.sudoku; 
+		/*
+		 * from ArrayUtil
+		 * int[][] sudoku= { {2, 0, 0, 0, 0, 0, 0, 0, 4}, {0, 1, 0, 0, 0, 0, 0, 5, 0},
+		 * {0, 0, 3, 0, 0, 0, 6, 0, 0}, {0, 0, 0, 4, 0, 9, 0, 0, 0}, {0, 0, 0, 0, 5, 0,
+		 * 0, 0, 0}, {0, 0, 0, 7, 0, 6, 0, 0, 0}, {0, 0, 6, 0, 0, 0, 7, 0, 0}, {0, 5, 0,
+		 * 0, 0, 0, 0, 8, 0}, {4, 0, 0, 0, 0, 0, 0, 0, 9} };
+		 */
+		
+		try {
+			solveSudoku(board);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}	
+		
+	}
+	
+	public static void solveSudoku(int[][] board) throws Exception {
+		
+		// only valid for 9*9 board
+		if (board.length != 9 || board[0].length !=9) {
+			throw new Exception("Please provide 9*9 Sudoku Board.");
+		}
+		
 		boolean[][] rowarr = new boolean[board.length][board.length + 1]; // +1 because my values lies from 1 to 9 instead of 0 to 8 & we dont want to do a -1 everytime while putting value in this
 		boolean[][] colsArr = new boolean[board.length][board.length + 1];
 		HashMap<String, boolean[]> subgroup = new HashMap<String, boolean[]>();
+		
 		// creating with hand, because I am too lazy to code for this small thing ;-)
 		subgroup.put("00", new boolean[board.length + 1]);
 		subgroup.put("03", new boolean[board.length + 1]);
@@ -26,11 +55,13 @@ public class Sudoku {
 		subgroup.put("63", new boolean[board.length + 1]);
 		subgroup.put("66", new boolean[board.length + 1]);
 		
+		warmUpLookupMapsWithInitializedSudokuCells(board, rowarr, colsArr, subgroup);
+		
 		// we should traverse our given sudoku board once so that we can put those value inside our rowarr, colsArr and subgroup in-memory maps, to reduce 
 		// the number of invalid cases in those given input.
 		sudoku(board, 0, 0, rowarr, colsArr, subgroup);
-		
 	}
+	
 	
 	public static void sudoku (int[][] board, int i, int j, boolean[][] rowArr, boolean[][] colsArr, HashMap<String, boolean[]> subgroup) {
 
@@ -43,7 +74,7 @@ public class Sudoku {
 			// then we have reached to the end of the board
 			// Print Board and return
 			
-			display(board);
+			Tools.display(board);
 			return;
 		} else {
 			if (j == board.length-1) {
@@ -65,7 +96,7 @@ public class Sudoku {
 			// How we are going to say that this board cannot proceed further as we have
 			// selected some of the vals at particular place which are not apt, so how do we get back
 			// to the original space ?? this will help you understand what all parameters are required
-		        // while doing backtracking or recursive calls;
+		    // while doing backtracking or recursive calls;
 		
 		for (int val = 1; val <= 9; val++) {
 			// if any of the rowArr or colsArr or subGroup contains this val for given i & j then we also have to do nothing 
@@ -86,6 +117,26 @@ public class Sudoku {
 		} // End Of value loop 1 to 9 
 	    }	
 	}
+	
+	public static void warmUpLookupMapsWithInitializedSudokuCells(int[][] board, boolean[][] rowarr, boolean[][] colsArr, HashMap<String, boolean[]> subgroup) {
+		
+		int val=0;
+		
+		for (int i=0; i< board.length; i++) {
+			for (int j=0; j< board[0].length; j++) {
+				val = board[i][j];
+				if (val != 0) {
+					rowarr[i][val] = true;
+					colsArr[j][val] = true;
+					int subgroupI = (i/3) * 3; 
+					int subGroupj = (j/3) * 3; 
+					subgroup.get(subgroupI + "" + subGroupj)[val]= true;
+				}
+			}
+		}
+		
+	}
+	
 	
 	public static void display(int[][] board) {
 		String str = "";
