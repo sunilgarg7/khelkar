@@ -35,10 +35,10 @@ public class DiagnolFillingOfMatrix {
 			}
 		} // end of half "diagonal" loop 
 		
-		for (int diagonal= rows+1  ; diagonal <= totalDiagnols; diagonal++) {
+		for (int diagonal= 1  ; diagonal < cols; diagonal++) {
 			// figure out the head of each diagonal
 			int row = rows-1;
-			int col = diagonal - rows ;
+			int col = diagonal ;
 			while (row >= 0  && col < cols) {
 				System.out.print("(" + row + " " + col + ")| ");
 				arr[row][col] = count++;
@@ -63,7 +63,7 @@ public class DiagnolFillingOfMatrix {
 		for (int diagonal= 0; diagonal < cols; diagonal++) {
 			// figure out the head of each diagonal
 			int row = 0;
-			int col =  cols - diagonal;
+			int col =  cols - diagonal -1;
 			while (row < rows  && col < cols) {
 				System.out.print("(" + row + " " + col + ")| ");
 				arr[row][col] = count++;
@@ -76,8 +76,8 @@ public class DiagnolFillingOfMatrix {
 		// Tools.display(arr);
 
 		
-		for (int diagonal= cols  ; diagonal <= totalDiagnols; diagonal++) {
-			int row = diagonal - cols;
+		for (int diagonal= 1  ; diagonal < rows; diagonal++) {
+			int row = diagonal;
 			int col = 0;
 			while (row < rows  && col < cols) {
 				System.out.print("(" + row + " " + col + ")| ");
@@ -115,9 +115,9 @@ public class DiagnolFillingOfMatrix {
 		// Tools.display(arr);
 
 		
-		for (int diagonal= rows+1  ; diagonal <= totalDiagnols; diagonal++) {
+		for (int diagonal= 1  ; diagonal < cols; diagonal++) {
 			int row = 0;
-			int col = cols - diagonal + rows -1;
+			int col = cols - diagonal -1;
 			while (row < rows  && col >= 0) {
 				System.out.print("(" + row + " " + col + ")| ");
 				arr[row][col] = count++;
@@ -154,8 +154,8 @@ public class DiagnolFillingOfMatrix {
 		// Tools.display(arr);
 
 		
-		for (int diagonal= cols ; diagonal <= totalDiagnols; diagonal++) {
-			int row = rows - diagonal + cols -2 ;
+		for (int diagonal= 1 ; diagonal <= rows; diagonal++) {
+			int row = rows - diagonal - 1 ;
 			int col = cols -1;
 			while (row >= 0  && col >= 0) {
 				System.out.print("(" + row + " " + col + ")| ");
