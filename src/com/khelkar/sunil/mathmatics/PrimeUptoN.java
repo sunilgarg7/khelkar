@@ -14,8 +14,7 @@ public class PrimeUptoN {
 			
 			if (arr[i] == true) {
 				System.out.println(i);
-				for (int j = i*i; j <= n; j = j
-						+i) {
+				for (int j = i*i; j <= n; j = j+i) {
 					arr[j] = false;
 					count++;
 				}

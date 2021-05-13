@@ -8,7 +8,7 @@ public class TrailingZeroInFactorial {
 		int count = 0;
 		
 		for (int i = 5; i <= n ; i = i*5) {
-			count +=  (int)(n/i);
+			count +=  n/i;
 		}
 		 
 		System.out.println(count);
