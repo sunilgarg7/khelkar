@@ -2,7 +2,7 @@ package com.khelkar.sunil.greedy;
 
 import java.util.Arrays;
 
-public class GreedyWindowApprochForSolvingVeryLargeWindowQueries {
+public class GreedyApprochForSolvingVeryLargeWindowQueries {
 	public static void main(String[] args) {
 
 		int[] arr = {7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7};
