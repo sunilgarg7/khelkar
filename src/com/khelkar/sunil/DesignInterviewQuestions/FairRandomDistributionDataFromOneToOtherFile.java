@@ -5,7 +5,7 @@ import java.io.LineNumberReader;
 import java.util.Arrays;
 
 
-// u have a file with file with multiple string lines and u have to put it into another file in fair random manner, how would you implement it with linkedlist and array only.
+// u have a file with multiple string lines and u have to put it into another file in fair random manner, how would you implement it with linkedlist and array only.
 // the distribution should be random i.e. should not follow any pattern.
 public class FairRandomDistributionDataFromOneToOtherFile {
 
