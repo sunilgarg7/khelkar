@@ -1,21 +1,15 @@
-package com.khelkar.sunil.DynamicProgramming;
+package com.khelkar.sunil.string;
 
 import com.khelkar.sunil.tool.Tools;
 
-public class LongestCommonSubsequence {
-	
+public class LCS {
+
 	public static void main(String[] args) {
 		String s1 = "abdcdef";
 		String s2 = "abdde";
 		int n = s1.length();
 		int m = s2.length();
 		int [][] dp = new int[n+1][m+1];
-		// So I am trying to get the Longest common subsequence in two ways 
-		// 1st starting from the start of the strings and 
-		// 2nd starting from the end of both strings.
-		// by these two methods I am trying help the people out there that it does not matter from where you start, you just have 
-		// to make little adjustments while writing, but as long as your algorithm is correct you dont need to worry from where to start.
-		
 		
 		for (int i=0; i<= n; i++) {
 			for (int j=0; j<=m; j++) {
@@ -25,9 +19,8 @@ public class LongestCommonSubsequence {
 					char ch = s1.charAt(i-1);
 					char ch2 = s2.charAt(j-1);
 					if (ch == ch2) {
-						dp[i][j] = dp[i-1][j-1] + 1;// look diagonally only if char matches
+						dp[i][j] = dp[i-1][j-1] + 1;
 					} else {
-						// look diagonally only if char matches
 						dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);
 					}
 				}
@@ -45,14 +38,17 @@ public class LongestCommonSubsequence {
 					char ch = s1.charAt(i);
 					char ch2 = s2.charAt(j);
 					if (ch == ch2) {
-						dp[i][j] = dp[i+1][j+1] + 1;// look diagonally only if char matches
+						dp[i][j] = dp[i+1][j+1] + 1;
 					} else {
-						// look diagonally only if char matches
 						dp[i][j] = Math.max(dp[i+1][j], dp[i][j+1]);
 					}
 				}
 			}
 		}
 		Tools.display(dp);
+
+		
 	}
+	
+	
 }

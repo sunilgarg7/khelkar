@@ -4,7 +4,7 @@ public class FrequencyPrintingInStringCharacterAppearnceOrderWithoutDuplicates {
 	public static void main(String[] args) {
 
 		// printing frequency of the characters, without printing the duplicate
-		// characters again and agains
+		// characters again and again
 		String str = "acbdhsfoosdhfohoas";
 
 		int[] freq = new int[255];

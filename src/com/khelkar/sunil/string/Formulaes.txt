@@ -1,0 +1,8 @@
+For LCS
+
+if (c1 = c2) -> 1 + (i-1, j-1)
+	else 
+			-> max (i-1,j) or (i, j-1) i.e. subsequence of ist string with 2nd string leaving c1 and viceversa
+			
+
+For Distinct Subsequence

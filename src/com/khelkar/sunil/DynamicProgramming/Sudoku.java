@@ -139,12 +139,12 @@ public class Sudoku {
 	
 	
 	public static void display(int[][] board) {
-		String str = "";
+		StringBuilder str = new StringBuilder();
 		for (int i=0; i < board.length; i++) {
 			for (int j=0; j< board.length; j++) {
-				str +=  board[i][j] + " "; // we could use String.format, but hey I am lazy ok?
+				str.append(board[i][j] + " "); // we could use String.format, but hey I am lazy ok?
 			}
-			str += "\n";
+		// 	str += "\n";
 		}
 		System.out.println(str);
 	}
