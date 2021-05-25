@@ -1,0 +1,18 @@
+Arrays Tricks and Treats ;-)
+
+if you have Arrays in Question use these things-
+
+1. you can sort Array, if question has multiple Arrays, then sort the ones which have less number of elements 
+		and try to solve problem around there. 
+	a)  things to remember the 1st element and the last element - 1st will be smallest and last will be largest- offcourse but keep this in mind.
+	
+2. if you are given an 1 based indexing then you definitely should create a new array with length n +1, otherwise 
+		all places you will be dealing with -1 for index {or multiple if conditions} to match with the array position -
+				 Use System.arraycopy(arr, 0, newArr, 1, n); [ this is a O(1) operation ] 
+		Special case for Range Queries - we will use n+2 array, we still be moving our original array by 1 as described above the next +1 is because
+										 for the right side of the queries we have to go +1 every time and to save that checking {if block} whether
+										 that is going out of the array length we increment our array by 1.
+
+3.  
+
+
